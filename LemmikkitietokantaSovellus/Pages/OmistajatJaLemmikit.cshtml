@@ -1,0 +1,214 @@
+@page
+@model OmistajatJaLemmikitModel
+@{
+    ViewData["Title"] = "Lemmikkitietokannan käyttöliittymä";
+    ViewData["BodyClass"] = "lemmikit-page";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/site.css" />
+}
+
+<h1>Lemmikkitietokannan käyttöliittymä</h1>
+
+<div class="content-container">
+    <h2>Lisää Omistaja</h2>
+    <div class="form-container">
+        <form method="post" asp-page-handler="AddOmistaja">
+            <div asp-validation-summary="ModelOnly"></div>
+            <div class="form-group">
+                <input type="text" asp-for="NewOmistaja.Nimi" placeholder="Omistajan nimi" required />
+            </div>
+            <div class="form-group">
+                <input type="text" asp-for="NewOmistaja.Puhelin" placeholder="Puhelin" required />
+            </div>
+            <button type="submit">Lisää Omistaja</button>
+        </form>
+    </div>
+
+    <h2>Lisää Lemmikki</h2>
+    <div class="form-container">
+        <form method="post" asp-page-handler="AddLemmikki">
+            <div asp-validation-summary="ModelOnly"></div>
+            <div class="form-group">
+                <input type="text" asp-for="NewLemmikki.Nimi" placeholder="Lemmikin nimi" required />
+            </div>
+            <div class="form-group">
+                <input type="text" asp-for="NewLemmikki.Rotu" placeholder="Rotu" required />
+            </div>
+            <div class="form-group">
+                <input type="number" asp-for="NewLemmikki.OmistajaId" placeholder="Omistajan ID" required />
+            </div>
+            <button type="submit">Lisää Lemmikki</button>
+        </form>
+    </div>
+
+    <h2>Etsi Omistajan ID</h2>
+    <div class="form-container">
+        <form method="post" asp-page-handler="EtsiOmistaja">
+            <div asp-validation-summary="ModelOnly"></div>
+            <div class="form-group">
+                <input type="text" asp-for="OmistajaNimi" placeholder="Omistajan nimi" required />
+            </div>
+            <button type="submit">Etsi Omistaja</button>
+        </form>
+    </div>
+
+    @if (Model.EtsittyOmistajaId.HasValue)
+    {
+        <p>Omistajan ID: @Model.EtsittyOmistajaId</p>
+    }
+
+    <h2>Etsi Lemmikit Omistajan ID:llä</h2>
+    <div class="form-container">
+        <form method="post" asp-page-handler="EtsiLemmikit">
+            <div asp-validation-summary="ModelOnly"></div>
+            <div class="form-group">
+                <input type="number" asp-for="EtsiOmistajanId" placeholder="Omistajan ID" required />
+            </div>
+            <button type="submit">Etsi Lemmikit</button>
+        </form>
+    </div>
+
+    @if (Model.EtsitytLemmikit.Any())
+    {
+        <h3>Löydetyt Lemmikit</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nimi</th>
+                    <th>Rotu</th>
+                    <th>Omistaja ID</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var lemmikki in Model.EtsitytLemmikit)
+                {
+                    <tr>
+                        <td>@lemmikki.Nimi</td>
+                        <td>@lemmikki.Rotu</td>
+                        <td>@lemmikki.OmistajaId</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+
+    <h2>Etsi Omistajan Nimi ID:llä</h2>
+    <div class="form-container">
+        <form method="post" asp-page-handler="EtsiOmistajaNimella">
+            <div asp-validation-summary="ModelOnly"></div>
+            <div class="form-group">
+                <input type="number" asp-for="EtsiOmistajanId" placeholder="Omistajan ID" required />
+            </div>
+            <button type="submit">Etsi Omistaja</button>
+        </form>
+    </div>
+
+    @if (Model.EtsittyOmistaja != null)
+    {
+        <h3>Löydetty Omistaja</h3>
+        <p>Nimi: @Model.EtsittyOmistaja.Nimi</p>
+        <p>Puhelin: @Model.EtsittyOmistaja.Puhelin</p>
+    }
+
+    <div class="content-container">
+        <h2>Omistajat</h2>
+        @if (TempData["ErrorMessage"] != null)
+        {
+            <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
+        }
+        <div class="toggle-button-container">
+            <button type="button" class="omistajat-button" onclick="toggleVisibility('omistajatTable')">Näytä/Piilota
+                Omistajat</button>
+        </div>
+        <table id="omistajatTable" style="display:none;">
+            <thead>
+                <tr>
+                    <th>Nimi</th>
+                    <th>Puhelin</th>
+                    <th>Omistaja ID</th>
+                    <th>Toiminnot</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var omistaja in Model.Omistajat)
+                {
+                    <tr>
+                        <td>@omistaja.Nimi</td>
+                        <td>@omistaja.Puhelin</td>
+                        <td>@omistaja.Id</td>
+                        <td>
+                            <form method="post" asp-page-handler="DeleteOmistaja" asp-route-id="@omistaja.Id"
+                                class="delete-form">
+                                <button type="submit" class="delete-button">Poista</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <h2>Lemmikit</h2>
+        <div class="toggle-button-container">
+            <button type="button" class="lemmikit-button" onclick="toggleVisibility('lemmikitTable')">Näytä/Piilota
+                Lemmikit</button>
+        </div>
+        <table id="lemmikitTable" style="display:none;">
+            <thead>
+                <tr>
+                    <th>Nimi</th>
+                    <th>Rotu</th>
+                    <th>Omistaja ID</th>
+                    <th>Toiminnot</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var lemmikki in Model.Lemmikit)
+                {
+                    <tr>
+                        <td>@lemmikki.Nimi</td>
+                        <td>@lemmikki.Rotu</td>
+                        <td>@lemmikki.OmistajaId</td>
+                        <td>
+                            <form method="post" asp-page-handler="DeleteLemmikki" asp-route-id="@lemmikki.Id"
+                                class="delete-form">
+                                <button type="submit" class="delete-button">Poista</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<footer class="border-top footer text-muted index-footer">
+    <div class="container">
+        &copy; 2024 - LemmikkitietokantaSovellus - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.
+        </p>
+    </div>
+</footer>
+
+@section Scripts {
+    <script>
+        function toggleVisibility(tableId) {
+            var table = document.getElementById(tableId);
+            if (table.style.display === "none") {
+                table.style.display = "table";
+            } else {
+                table.style.display = "none";
+            }
+        }
+
+        // Check if there is an error message and keep the table visible
+        window.onload = function () {
+            var errorMessage = '@TempData["ErrorMessage"]';
+            if (errorMessage) {
+                var table = document.getElementById('omistajatTable');
+                table.style.display = 'table';
+            }
+        };
+    </script>
+}

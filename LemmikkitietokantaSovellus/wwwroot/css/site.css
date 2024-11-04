@@ -1,0 +1,370 @@
+/* Yleisessä käytössä olevat asetukset */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  flex: 1;
+  background-color: #f8f9fa;
+  padding-bottom: 100px;
+  padding-top: 70px;;
+}
+
+/* Navigaatio */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000; /* Ensure the navbar stays on top */
+  background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+.navbar .navbar-brand,
+.navbar .nav-link {
+  color: white !important; /* Set navbar text color to white */
+}
+
+.navbar .nav-link:hover {
+  color: #f8f9fa !important; /* Optional: Change hover color if needed */
+}
+
+body.home-page {
+  padding-top: 70px; /* Avoid content being hidden behind the navbar */
+}
+
+/* Sivupohjan asetukset */
+.container {
+  flex: 1;
+}
+
+.content-container {
+  margin-bottom: 100px; /* Space at the bottom to prevent overlap with footer */
+}
+
+/* Taustakuvat sivuittain */
+body.home-page {
+  background-image: url('/Pictures/view-cats-dogs-showing-friendship.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: fixed;
+}
+
+body.lemmikit-page {
+  background-image: url('/Pictures/portrait-adorable-beagle-nature.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: fixed;
+}
+
+body.privacy-page {
+  background-image: url('/Pictures/lovely-pet-portrait-isolated.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+body.error-page {
+  background-image: url('/Pictures/freepik-funny-naugthy-dog-animal-meme-20241103180212MWMu.jpeg'); /* Path to your error page background image */
+  background-size: contain; /* Ensure the entire image is visible */
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Fix the background image */
+  background-position: center; /* Center the background image */
+  background-position: center 70px; /* Center the background image and move it down by 70px */
+}
+
+/* Tekstin värit */
+h1, h2 {
+  color: white;
+}
+
+.error-title {
+  color: black !important; /* Set the text color to black */
+}
+
+p {
+  color: white;
+}
+
+body.lemmikit-page h1,
+body.lemmikit-page h2,
+body.lemmikit-page h3 {
+  text-align: right;
+}
+
+/* Taulukon asettelu */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table, th, td {
+  border: 1px solid #ddd;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+/* Lomakkeen asettelu */
+.form-container {
+  display: flex;
+  justify-content: flex-end; /* Align form to the right */
+  margin-bottom: 20px;
+  
+}
+
+form {
+  display: flex;
+  flex-direction: column; /* Stack fields vertically */
+  width: 300px; /* Adjust width as needed */
+  
+  
+}
+
+form .form-group {
+  margin-bottom: 10px; /* Space between fields */
+}
+
+input[type="text"], input[type="number"] {
+  padding: 5px;
+  margin: 5px 0;
+  width: 100%;
+  box-sizing: border-box;
+  color: black !important; /* Set text color to black */
+  background-color: #D8D5C4; /* Set background color for the form container */
+}
+
+/* Kotisivun erityisrakenteet */
+body.home-page .title-box {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 0px 50px;
+  display: inline-block;
+  color: white;
+  margin-bottom: 20px;
+}
+
+body.home-page .title-box h1 {
+  margin: 0;
+  color: white !important;
+}
+
+/* Nappien asettelu */
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+}
+
+body.home-page button {
+  background-color: #5C4E45 !important;
+  color: white !important;
+}
+
+body.home-page button:hover {
+  background-color: #4B3E35 !important; /* Change hover color if needed */
+}
+
+.home-page-button {
+  background-color: #5C4E45 !important;
+  color: white !important;
+  padding: 10px 20px !important;
+  border: none !important;
+  cursor: pointer !important;
+}
+
+form button {
+  align-self: flex-end;
+  background-color: #5C4E45 !important;
+  color: white !important;
+}
+
+form button:hover {
+  background-color: #4B3E35 !important;
+}
+
+.toggle-button-container {
+  display: flex;
+  justify-content: flex-end; /* Align button to the right */
+  margin-bottom: 20px;
+}
+
+.toggle-button-container button {
+  background-color: #5C4E45 !important;
+  color: white !important;
+}
+
+.toggle-button-container button:hover {
+  background-color: #4B3E35 !important;
+}
+
+.toggle-button-container .omistajat-button {
+  background-color: #5C4E45 !important;
+  color: white !important;
+}
+
+.toggle-button-container .omistajat-button:hover {
+  background-color: #4B3E35 !important;
+}
+
+.toggle-button-container .lemmikit-button {
+  background-color: #3E5C45 !important;
+  color: white !important;
+}
+
+.toggle-button-container .lemmikit-button:hover {
+  background-color: #2E4B35 !important;
+}
+
+.delete-form {
+  display: inline;
+}
+
+.delete-button {
+  padding: 5px 10px; /* Adjust padding as needed */
+  font-size: 12px; /* Adjust font size as needed */
+  color: white; /* Set text color */
+  border: none; /* Remove border */
+  cursor: pointer; /* Set cursor to pointer */
+}
+
+
+
+.error-button {
+  background-color: #4B3E35 !important; /* Set the background color to red */
+  border: 1px solid #4B3E35;
+  color: white !important; /* Set the text color to white */
+}
+
+.error-button:hover {
+  background-color: #4B3E35 !important; /* Change hover color if needed */
+  border: 1px solid #4B3E35;
+}
+
+/* Virheilmoituksen muotoilu */
+.alert-danger {
+  display: flex;
+  justify-content: flex-end; /* Align text to the right */
+  background-color: #f8d7da; /* Set background color */
+  color: #721c24; /* Set text color */
+  padding: 10px; /* Add padding */
+  border: 1px solid #f5c6cb; /* Add border */
+  border-radius: 0px; /* Add border radius */
+  width: 60%; /* Match the table width */
+  margin-left: auto; /* Align to the right */
+  margin-bottom: 20px; /* Add space below */
+}
+
+/* Taulukon asettelu */
+table {
+  width: 80%; /* Adjust width as needed */
+  border-collapse: collapse;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: auto;
+  background-color: #f9f9f9; /* Set background color */
+}
+
+table, th, td {
+  border: 1px solid #ddd;
+}
+
+th, td {
+  padding: 5px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+/* Taulukon koon muokkaus ja oikeaan reunaan sitominen */
+.table-container {
+  display: flex;
+  justify-content: flex-end; /* Align table to the right */
+}
+
+/* Taulukon koon muokkaus */
+#omistajatTable {
+  width: 60%; /* Adjust width as needed */
+  margin-left: auto;
+}
+
+#lemmikitTable {
+  width: 60%; /* Adjust width as needed */
+  margin-left: auto;
+}
+
+/* Pienennetään taulukossa olevien nappien kokoa */
+table button {
+  padding: 5px 10px; /* Adjust padding as needed */
+  font-size: 12px; /* Adjust font size as needed */
+}
+
+/* Muutetaan taulukon sarakkeiden leveyttä */
+#omistajatTable th:nth-child(1),
+#omistajatTable td:nth-child(1) {
+  width: 40%; /* Adjust width as needed */
+}
+
+#omistajatTable th:nth-child(2),
+#omistajatTable td:nth-child(2) {
+  width: 30%; /* Adjust width as needed */
+}
+
+#omistajatTable th:nth-child(3),
+#omistajatTable td:nth-child(3) {
+  width: 20%; /* Adjust width as needed */
+}
+
+#omistajatTable th:nth-child(4),
+#omistajatTable td:nth-child(4) {
+  width: 10%; /* Adjust width as needed */
+}
+
+
+/* Footer-asettelu */
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white !important;
+  text-align: center;
+}
+
+body.home-page footer.index-footer,
+body.lemmikit-page footer.index-footer,
+body.error-page footer.index-footer,
+body.privacy-page footer.index-footer {
+  color: white !important;
+  background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+body.home-page footer.index-footer a,
+body.lemmikit-page footer.index-footer a,
+body.error-page footer.index-footer a,
+body.privacy-page footer.index-footer a {
+  color: #B0A36A !important;
+  text-decoration: underline;
+}
+
+body.home-page footer.index-footer a:hover,
+body.lemmikit-page footer.index-footer a:hover,
+body.error-page footer.index-footer a:hover,
+body.privacy-page footer.index-footer a:hover {
+  color: #454A26 !important;
+}
+

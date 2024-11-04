@@ -1,0 +1,29 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home Page";
+    ViewData["BodyClass"] = "home-page";
+}
+
+<div class="container">
+    <div class="text-center">
+        <div class="title-box">
+            <h1 class="display-4">Lemmikkitietokanta</h1>
+        </div>
+
+
+        <!-- Lisää linkki siirtymiselle toiseen sivuun -->
+        <p>
+            <a asp-page="OmistajatJaLemmikit" class="btn btn-primary home-page-button">
+                Siirry käyttämään tietokantaa
+            </a>
+        </p>
+    </div>
+</div>
+
+<footer class="border-top footer text-muted index-footer">
+    <div class="container">
+        &copy; 2024 - LemmikkitietokantaSovellus - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    </div>
+</footer>
