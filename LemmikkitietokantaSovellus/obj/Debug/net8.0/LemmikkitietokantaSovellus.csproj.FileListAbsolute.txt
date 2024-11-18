@@ -156,3 +156,4 @@ C:\Learning\Testi_5\LemmikkitietokantaSovellus\obj\Debug\net8.0\refint\Lemmikkit
 C:\Learning\Testi_5\LemmikkitietokantaSovellus\obj\Debug\net8.0\LemmikkitietokantaSovellus.pdb
 C:\Learning\Testi_5\LemmikkitietokantaSovellus\obj\Debug\net8.0\LemmikkitietokantaSovellus.genruntimeconfig.cache
 C:\Learning\Testi_5\LemmikkitietokantaSovellus\obj\Debug\net8.0\ref\LemmikkitietokantaSovellus.dll
+C:\Learning\Testi_5\LemmikkitietokantaSovellus\obj\Debug\net8.0\LemmikkitietokantaSovellus.sourcelink.json

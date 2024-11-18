@@ -241,7 +241,6 @@ form button:hover {
 }
 
 
-
 .error-button {
   background-color: #4B3E35 !important; /* Set the background color to red */
   border: 1px solid #4B3E35;
@@ -253,16 +252,42 @@ form button:hover {
   border: 1px solid #4B3E35;
 }
 
+/* Tuloksen muotoilu */
+.result-container {
+  display: flex;
+  justify-content: flex-end; /* Align form to the right */
+  margin-bottom: 20px;
+  padding: 10px; /* Add padding */
+  border: 1px solid #ddd; /* Add border */
+  border-radius: 4px; /* Add border radius */
+  text-align: right; /* Align text to the right */
+}
+
 /* Virheilmoituksen muotoilu */
 .alert-danger {
   display: flex;
   justify-content: flex-end; /* Align text to the right */
   background-color: #f8d7da; /* Set background color */
-  color: #721c24; /* Set text color */
+  color: white !important; /* Set text color to white and override other styles */
   padding: 10px; /* Add padding */
   border: 1px solid #f5c6cb; /* Add border */
-  border-radius: 0px; /* Add border radius */
-  width: 60%; /* Match the table width */
+  border-radius: 4px; /* Add border radius */
+  width: 80%; /* Match the table width */
+  margin-left: auto; /* Align to the right */
+  margin-bottom: 20px; /* Add space below */
+}
+
+.alert-danger * {
+  color: white !important; /* Ensure all child elements have white text color */
+}
+
+/* Virheilmoituksen muotoilu */
+.validation-summary-errors {
+  color: #F2A007 !important; /* Set text color to white */
+  
+  padding: 10px; /* Add padding */
+
+  width: 80%; /* Match the table width */
   margin-left: auto; /* Align to the right */
   margin-bottom: 20px; /* Add space below */
 }

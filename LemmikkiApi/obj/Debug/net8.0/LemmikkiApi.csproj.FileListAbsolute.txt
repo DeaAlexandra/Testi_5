@@ -80,3 +80,4 @@ C:\Learning\Testi_5\LemmikkiApi\bin\Debug\net8.0\Microsoft.OpenApi.dll
 C:\Learning\Testi_5\LemmikkiApi\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Learning\Testi_5\LemmikkiApi\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Learning\Testi_5\LemmikkiApi\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Learning\Testi_5\LemmikkiApi\obj\Debug\net8.0\LemmikkiApi.sourcelink.json

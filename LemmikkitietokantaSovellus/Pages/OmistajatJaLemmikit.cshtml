@@ -72,26 +72,28 @@
 
     @if (Model.EtsitytLemmikit.Any())
     {
-        <h3>Löydetyt Lemmikit</h3>
-        <table>
-            <thead>
-                <tr>
-                    <th>Nimi</th>
-                    <th>Rotu</th>
-                    <th>Omistaja ID</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var lemmikki in Model.EtsitytLemmikit)
-                {
+        <div class="table-container">
+            <h3>Löydetyt Lemmikit</h3>
+            <table>
+                <thead>
                     <tr>
-                        <td>@lemmikki.Nimi</td>
-                        <td>@lemmikki.Rotu</td>
-                        <td>@lemmikki.OmistajaId</td>
+                        <th>Nimi</th>
+                        <th>Rotu</th>
+                        <th>Omistaja ID</th>
                     </tr>
-                }
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    @foreach (var lemmikki in Model.EtsitytLemmikit)
+                    {
+                        <tr>
+                            <td>@lemmikki.Nimi</td>
+                            <td>@lemmikki.Rotu</td>
+                            <td>@lemmikki.OmistajaId</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
     }
 
     <h2>Etsi Omistajan Nimi ID:llä</h2>
@@ -107,9 +109,11 @@
 
     @if (Model.EtsittyOmistaja != null)
     {
-        <h3>Löydetty Omistaja</h3>
-        <p>Nimi: @Model.EtsittyOmistaja.Nimi</p>
-        <p>Puhelin: @Model.EtsittyOmistaja.Puhelin</p>
+        <div class="result-container text-right">
+            <h3>Löydetty Omistaja</h3>
+            <p>Nimi: @Model.EtsittyOmistaja.Nimi</p>
+            <p>Puhelin: @Model.EtsittyOmistaja.Puhelin</p>
+        </div>
     }
 
     <div class="content-container">
@@ -122,32 +126,34 @@
             <button type="button" class="omistajat-button" onclick="toggleVisibility('omistajatTable')">Näytä/Piilota
                 Omistajat</button>
         </div>
-        <table id="omistajatTable" style="display:none;">
-            <thead>
-                <tr>
-                    <th>Nimi</th>
-                    <th>Puhelin</th>
-                    <th>Omistaja ID</th>
-                    <th>Toiminnot</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var omistaja in Model.Omistajat)
-                {
+        <div class="table-container">
+            <table id="omistajatTable" style="display:none;">
+                <thead>
                     <tr>
-                        <td>@omistaja.Nimi</td>
-                        <td>@omistaja.Puhelin</td>
-                        <td>@omistaja.Id</td>
-                        <td>
-                            <form method="post" asp-page-handler="DeleteOmistaja" asp-route-id="@omistaja.Id"
-                                class="delete-form">
-                                <button type="submit" class="delete-button">Poista</button>
-                            </form>
-                        </td>
+                        <th>Nimi</th>
+                        <th>Puhelin</th>
+                        <th>Omistaja ID</th>
+                        <th>Toiminnot</th>
                     </tr>
-                }
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    @foreach (var omistaja in Model.Omistajat)
+                    {
+                        <tr>
+                            <td>@omistaja.Nimi</td>
+                            <td>@omistaja.Puhelin</td>
+                            <td>@omistaja.Id</td>
+                            <td>
+                                <form method="post" asp-page-handler="DeleteOmistaja" asp-route-id="@omistaja.Id"
+                                    class="delete-form">
+                                    <button type="submit" class="delete-button">Poista</button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
 
         <h2>Lemmikit</h2>
         <div class="toggle-button-container">
